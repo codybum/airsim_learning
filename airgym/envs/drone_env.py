@@ -23,6 +23,7 @@ class AirSimDroneEnv(AirSimEnv):
         }
 
         self.drone = airsim.MultirotorClient(ip=ip_address)
+
         self.action_space = spaces.Discrete(7)
         self._setup_flight()
         
@@ -35,12 +36,12 @@ class AirSimDroneEnv(AirSimEnv):
 
     def _setup_flight(self):
         self.drone.reset()
-        self.drone.enableApiControl(True,self.ident)
-        self.drone.armDisarm(True, self.ident)
+        self.drone.enableApiControl(True, vehicle_name=self.ident)
+        self.drone.armDisarm(True, vehicle_name=self.ident)
 
         # Set home position and velocity
-        self.drone.moveToPositionAsync(-0.55265, -31.9786, -19.0225, 10).join()
-        self.drone.moveByVelocityAsync(1, -0.67, -0.8, 5).join()
+        self.drone.moveToPositionAsync(-0.55265, -31.9786, -19.0225, 10, vehicle_name=self.ident).join()
+        self.drone.moveByVelocityAsync(1, -0.67, -0.8, 5, vehicle_name=self.ident).join()
 
     def transform_obs(self, responses):
         img1d = np.array(responses[0].image_data_float, dtype=np.float)
@@ -63,7 +64,7 @@ class AirSimDroneEnv(AirSimEnv):
         self.state["position"] = self.drone_state.kinematics_estimated.position
         self.state["velocity"] = self.drone_state.kinematics_estimated.linear_velocity
 
-        collision = self.drone.simGetCollisionInfo().has_collided
+        collision = self.drone.simGetCollisionInfo(vehicle_name=self.ident).has_collided
         self.state["collision"] = collision
 
         return image

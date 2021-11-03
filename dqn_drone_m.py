@@ -10,7 +10,10 @@ from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.callbacks import EvalCallback
 
 parser = argparse.ArgumentParser(description='AirSim Video Server')
-parser.add_argument('--id', type=str, default="NONE")
+parser.add_argument('--vid', type=str, default="NONE")
+parser.add_argument('--ip', type=str, default="127.0.0.1")
+parser.add_argument('--name', type=str, default="airgym:airsim-drone-sample-v0")
+
 args = parser.parse_args()
 
 
@@ -20,11 +23,11 @@ env = DummyVecEnv(
     [
         lambda: Monitor(
             gym.make(
-                "airgym:airsim-drone-sample-v0",
-                ip_address="10.33.31.21",
+                args.name,
+                ip_address=args.ip,
                 step_length=0.25,
                 image_shape=(84, 84, 1),
-                ident=args.id,
+                ident=args.vid,
             )
         )
     ]
