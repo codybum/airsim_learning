@@ -35,15 +35,19 @@ class AirSimDroneEnv(AirSimEnv):
         self.drone.reset()
 
     def _setup_flight(self):
-        #self.drone.reset()
+        self.drone.reset()
         self.drone.enableApiControl(True, vehicle_name=self.ident)
         self.drone.armDisarm(True, vehicle_name=self.ident)
 
         # Set home position and velocity
-        #self.drone.moveToPositionAsync(-0.55265, -31.9786, -19.0225, 10, vehicle_name=self.ident).join()
-        #self.drone.moveByVelocityAsync(1, -0.67, -0.8, 5, vehicle_name=self.ident).join()
+        self.drone.moveToPositionAsync(-0.55265, -31.9786, -19.0225, 10, vehicle_name=self.ident).join()
+        self.drone.moveByVelocityAsync(1, -0.67, -0.8, 5, vehicle_name=self.ident).join()
 
     def _reset_flight(self):
+
+        self.drone.reset()
+        self.drone.enableApiControl(True, vehicle_name=self.ident)
+        self.drone.armDisarm(True, vehicle_name=self.ident)
 
         # Set home position and velocity
         #self.drone.goHomeAsync(vehicle_name=self.ident)
