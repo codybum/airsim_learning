@@ -40,14 +40,16 @@ class AirSimDroneEnv(AirSimEnv):
         self.drone.armDisarm(True, vehicle_name=self.ident)
 
         # Set home position and velocity
-        self.drone.moveToPositionAsync(-0.55265, -31.9786, -19.0225, 10, vehicle_name=self.ident).join()
-        self.drone.moveByVelocityAsync(1, -0.67, -0.8, 5, vehicle_name=self.ident).join()
+        #self.drone.moveToPositionAsync(-0.55265, -31.9786, -19.0225, 10, vehicle_name=self.ident).join()
+        #self.drone.moveByVelocityAsync(1, -0.67, -0.8, 5, vehicle_name=self.ident).join()
 
     def _reset_flight(self):
 
         # Set home position and velocity
-        self.drone.moveToPositionAsync(-0.55265, -31.9786, -19.0225, 10, vehicle_name=self.ident).join()
-        self.drone.moveByVelocityAsync(1, -0.67, -0.8, 5, vehicle_name=self.ident).join()
+        self.drone.goHomeAsync(vehicle_name=self.ident)
+
+        #self.drone.moveToPositionAsync(-0.55265, -31.9786, -19.0225, 10, vehicle_name=self.ident).join()
+        #self.drone.moveByVelocityAsync(1, -0.67, -0.8, 5, vehicle_name=self.ident).join()
 
     def transform_obs(self, responses):
         img1d = np.array(responses[0].image_data_float, dtype=np.float)
