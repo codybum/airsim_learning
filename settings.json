@@ -1,0 +1,83 @@
+{
+        "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md",
+        "SettingsVersion": 1.2,
+        "SimMode": "Multirotor",
+         "LocalHostIp": "10.33.31.21",
+        "ApiServerPort": 41451,
+        "ClockSpeed": 1,
+        "ViewMode": "NoDisplay",
+        "Vehicles": {
+                "Drone0": {
+                        "VehicleType": "SimpleFlight",
+                        "X": -200, "Y":0, "Z": 0,
+                        "AllowAPIAlways": true,
+                        "Cameras": {
+                                "cam": {
+                                        "CaptureSettings": [
+                                                {
+                                                        "ImageType": 0,
+                                                        "Width": 1024,
+                                                        "Height": 1024,
+                                                        "FOV_Degrees": 90,
+                                                        "AutoExposureSpeed": 100,
+                                                        "AutoExposureBias": 0,
+                                                        "AutoExposureMaxBrightness": 1,
+                                                        "AutoExposureMinBrightness": 1,
+                                                        "MotionBlurAmount": 0,
+                                                        "TargetGamma": 1.5
+                                                },
+                                                {
+                                                        "ImageType": 5,
+                                                        "Width": 240,
+                                                        "Height": 180,
+                                                        "FOV_Degrees": 90,
+                                                        "AutoExposureSpeed": 100,
+                                                        "AutoExposureBias": 0,
+                                                        "AutoExposureMaxBrightness": 1,
+                                                        "AutoExposureMinBrightness": 1,
+                                                        "MotionBlurAmount": 0,
+                                                        "TargetGamma": 1.5
+                                                }
+                                        ],
+                                        "X": 200,
+                                        "Y": 0.0,
+                                        "Z": -70.0,
+                                        "Pitch": -90.0,
+                                        "Roll": 0.0,
+                                        "Yaw": 0.0
+                                }
+                        }
+
+                  },
+                  "Drone1": {
+                        "VehicleType": "SimpleFlight",
+                        "X": 2, "Y": 0, "Z": -2,
+                        "AllowAPIAlways": true
+                  },
+                  "Drone2": {
+                        "VehicleType": "SimpleFlight",
+                        "X": 2, "Y": 2, "Z": -2,
+                        "AllowAPIAlways": true
+                  },
+                  "Drone3": {
+                        "VehicleType": "SimpleFlight",
+                        "X": 4, "Y": 0, "Z": -2,
+                        "AllowAPIAlways": true
+                  },
+                  "Drone4": {
+                        "VehicleType": "SimpleFlight",
+                        "X": 4, "Y": 2, "Z": -2,
+                        "AllowAPIAlways": true
+                  },
+                  "Drone5": {
+                        "VehicleType": "SimpleFlight",
+                        "X": 6, "Y": 0, "Z": -2,
+                        "AllowAPIAlways": true
+                  },
+                  "Drone6": {
+                        "VehicleType": "SimpleFlight",
+                        "X": 6, "Y": 2, "Z": -2,
+                        "AllowAPIAlways": true
+                  }
+                }
+}
